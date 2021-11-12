@@ -9,14 +9,12 @@
     </tr>
 
 <% @users.each do |user| %>
-<tr>
-        <td>0</td>
-        <td>Kev</td>
-        <td>kevin@email.com</td>
-        <td>True</td>
-        <td>True</td>
+    <tr>
+        <td><%=user.id%></td>
+        <td><%=user.name%></td>
+        <td><%=user.email%></td>
+        <td><%=user.admin%></td>
+        <td><%=user.captain%></td>
     </tr>
 <%end%>
-
-    
 </table>
