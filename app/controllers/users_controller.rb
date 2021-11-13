@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+	skip_before_action :is_authorized, only: [:create, :signin, :index]
+
+	def user_profile
+		render json: @user
+	end
 
 	def index
 		@users = User.all
