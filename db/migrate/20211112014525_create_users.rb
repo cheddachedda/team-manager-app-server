@@ -7,8 +7,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :team_id
       t.boolean :admin, default: false
       t.boolean :captain, default: false
-      t.integer :balance
-      t.integer :fines
+      t.integer :balance, default: 0
+      t.integer :fines, default: 0
       t.integer :votes
 
       t.timestamps
