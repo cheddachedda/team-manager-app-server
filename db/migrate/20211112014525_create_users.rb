@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :captain, default: false
       t.integer :balance, default: 0
       t.integer :fines, default: 0
+      t.integer :votes
 
       t.timestamps
     end
