@@ -32,10 +32,14 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def signout
+		@user = User.find_by params[:user]
+	end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :name, :password, :signin)
+    params.require(:user).permit(:email, :name, :password, :signin, :captain)
   end
 
 end
