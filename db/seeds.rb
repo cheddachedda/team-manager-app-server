@@ -1,6 +1,6 @@
 User.destroy_all
-u0 = User.create :email => "kevin@email.com", :name => "Kevn", :team_id => '', :captain => 'false', :password => "chicken", password_confirmation: "chicken", admin: false
-u1 = User.create :email => "paul@email.com", :name => "Luap", :team_id => '', :captain => 'false', :password => "chicken", password_confirmation: "chicken", admin: false
-u2 = User.create :email => "carl@email.com", :name => "Carl", :team_id => '', :captain => 'false', :password => "chicken", password_confirmation: "chicken", admin: false
-u3 = User.create :email => "team@email.com", :name => "Team", :team_id => '', :captain => 'false', :password => "chicken", password_confirmation: "chicken", admin: true
+u0 = User.create :email => "kevin@email.com", :name => "Kevn", :team_id => '0', :captain => 'false', :password => "chicken", password_confirmation: "chicken", admin: false
+u1 = User.create :email => "paul@email.com", :name => "Luap", :team_id => '1', :captain => 'false', :password => "chicken", password_confirmation: "chicken", admin: false
+u2 = User.create :email => "carl@email.com", :name => "Carl", :team_id => '2', :captain => 'false', :password => "chicken", password_confirmation: "chicken", admin: false
+u3 = User.create :email => "team@email.com", :name => "Team", :team_id => '3', :captain => 'false', :password => "chicken", password_confirmation: "chicken", admin: true
 puts "#{ User.count } users created."
