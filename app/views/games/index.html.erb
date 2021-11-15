@@ -1,0 +1,46 @@
+<h2>Games</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Venue</th>
+        <th>time</th>
+        <th>homescore</th>
+        <th>awayscore</th>
+        <th>home_id</th>
+        <th>away_id</th>
+        <th>status</th>
+        <th>round</th>
+        <th>division</th>
+        <th>homevotes</th>
+        <th>awayvotes</th>
+        <th>homebalance</th>
+        <th>awaybalance</th>
+        <th>homedrinks_id</th>
+        <th>awaydrinks_id</th>
+        <th>homeavailible_id</th>
+        <th>awayavailible_id</th>
+    </tr>
+
+<% @games.each do |game| %>
+    <tr>
+        <td><%=game.id%></td>
+        <td><%=game.venue%></td>
+        <td><%=game.time%></td>
+        <td><%=game.homescore%></td>
+        <td><%=game.awayscore%></td>
+        <td><%=game.home_id%></td>
+        <td><%=game.away_id%></td>
+        <td><%=game.staus%></td>
+        <td><%=game.round%></td>
+        <td><%=game.division%></td>
+        <td><%=game.homevotes%></td>
+        <td><%=game.awayvotes%></td>
+        <td><%=game.homebalance%></td>
+        <td><%=game.awaybalance%></td>
+        <td><%=game.homedrinks_id%></td>
+        <td><%=game.awaydrinks_id%></td>
+        <td><%=game.homeavailible_id%></td>
+        <td><%=game.awayavailible_id%></td>
+    </tr>
+<%end%>
+</table>
