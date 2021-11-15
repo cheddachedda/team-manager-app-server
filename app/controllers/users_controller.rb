@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
 	skip_before_action :is_authorized, only: [:create, :signin, :index]
 
-	def user_profile
-		render json: @user
-	end
-
 	def index
 		@users = User.all
 	end
@@ -17,6 +13,11 @@ class UsersController < ApplicationController
 			# Logs errors to the console if user was not created
 			render json: @user.errors.full_messages
 		end
+	end
+
+	# TODO: Rename as `show`. Amend in frontend as well.
+	def user_profile
+		render json: @user
 	end
 
 	def signin
