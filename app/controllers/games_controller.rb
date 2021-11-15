@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-
+skip_before_action :is_authorized, only: [:create, :index]
 
   # GET /games/1 or /games/1.json
   def show
@@ -14,9 +14,14 @@ class GamesController < ApplicationController
   def edit
   end
 
+  def index
+		@games = Game.all
+		render json: @games
+	end
+
   # POST /games or /games.json
   def create
-    @airplane = Airplane.new(airplane_params)
+    @agame = Game.new(game_params)
 
     respond_to do |format|
       if @game.save
@@ -58,11 +63,8 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
-  # # Only allow a list of trusted parameters through.
-  # def game_params
-  #   params.require(:game).permit(:, :, :)
-  # end
-end
-
-
+  # Only allow a list of trusted parameters through.
+  def game_params
+    params.require(:game).permit(:venue, :time, :homescore)
+  end
 end

@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/profile', to: "users#user_profile"
   resources :teams
 
+
+  resources :games
 end
