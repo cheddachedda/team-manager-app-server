@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_210007) do
+ActiveRecord::Schema.define(version: 2021_11_15_215715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_210007) do
     t.datetime "datetime"
     t.integer "home_score"
     t.integer "away_score"
-    t.integer "home_id"
-    t.integer "away_id"
     t.text "status"
     t.string "round"
     t.string "division"
@@ -33,6 +31,18 @@ ActiveRecord::Schema.define(version: 2021_11_15_210007) do
     t.integer "away_votes", default: [], array: true
     t.integer "home_available_ids", default: [], array: true
     t.integer "away_available_ids", default: [], array: true
+    t.string "home"
+    t.string "away"
+  end
+
+  create_table "games_teams", id: false, force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "team_id"
+  end
+
+  create_table "games_users", id: false, force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "user_id"
   end
 
   create_table "teams", force: :cascade do |t|
