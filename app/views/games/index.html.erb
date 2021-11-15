@@ -1,0 +1,18 @@
+<h2>Games</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Venue</th>
+        <th>Date & Time</th>
+        <th>Status</th>
+    </tr>
+
+<% @games.each do |game| %>
+    <tr>
+        <td><%=game.id%></td>
+        <td><%=game.venue%></td>
+        <td><%=game.time%></td>
+        <td><%=game.status%></td>
+    </tr>
+<%end%>
+</table>
