@@ -1,8 +1,9 @@
 class GamesController < ApplicationController
 skip_before_action :is_authorized, only: [:create, :index]
 
-  # GET /games/1 or /games/1.json
-  def show
+  def index
+    @games = Game.all
+    render json: @games
   end
 
   # GET /games/new
@@ -10,19 +11,18 @@ skip_before_action :is_authorized, only: [:create, :index]
     @game = Game.new
   end
 
-  # GET /game/1/edit
-  def edit
-  end
-
-  def index
-		@games = Game.all
-		render json: @games
-	end
-
   # POST /games or /games.json
   def create
     @game = Game.new(game_params)
     render :json => @game.errors.full_messages
+  end
+
+  # GET /games/1 or /games/1.json
+  def show
+  end
+
+  # GET /game/1/edit
+  def edit
   end
 
   # PATCH/PUT /games/1 or /games/1.json
