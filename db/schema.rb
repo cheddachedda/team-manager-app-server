@@ -10,34 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_013209) do
+ActiveRecord::Schema.define(version: 2021_11_15_202446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
     t.text "venue"
-    t.datetime "time"
-    t.integer "homescore"
-    t.integer "awayscore"
+    t.datetime "datetime"
+    t.integer "home_score"
+    t.integer "away_score"
     t.integer "home_id"
     t.integer "away_id"
     t.text "status"
     t.integer "round"
-    t.integer "division"
-    t.integer "homevotes"
-    t.integer "awayvotes"
-    t.integer "homebalance"
-    t.integer "awaybalance"
-    t.integer "homedrinks_id"
-    t.integer "awaydrinks_id"
-    t.integer "homeavailible_id"
-    t.integer "awayavailible_id"
+    t.string "division"
+    t.integer "home_balance"
+    t.integer "away_balance"
+    t.integer "home_drinks_id"
+    t.integer "away_drinks_id"
+    t.integer "home_votes", default: [], array: true
+    t.integer "away_votes", default: [], array: true
+    t.integer "home_available_ids", default: [], array: true
+    t.integer "away_available_ids", default: [], array: true
   end
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.integer "division"
+    t.string "division"
     t.integer "captain_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
