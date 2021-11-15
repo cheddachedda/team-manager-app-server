@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_202446) do
+ActiveRecord::Schema.define(version: 2021_11_15_210007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_11_15_202446) do
     t.integer "home_id"
     t.integer "away_id"
     t.text "status"
-    t.integer "round"
+    t.string "round"
     t.string "division"
     t.integer "home_balance"
     t.integer "away_balance"
