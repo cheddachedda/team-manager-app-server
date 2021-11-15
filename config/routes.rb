@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :users
   post "/signin", to: "users#signin"
   get '/profile', to: "users#user_profile"
+  resources :teams
 
 end
