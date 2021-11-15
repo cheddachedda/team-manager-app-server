@@ -21,17 +21,8 @@ skip_before_action :is_authorized, only: [:create, :index]
 
   # POST /games or /games.json
   def create
-    @agame = Game.new(game_params)
-
-    respond_to do |format|
-      if @game.save
-        format.html { redirect_to @game, notice: "Game was successfully created." }
-        format.json { render :show, status: :created, location: @game }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
-      end
-    end
+    @game = Game.new(game_params)
+    render :json => @game.errors.full_messages
   end
 
   # PATCH/PUT /games/1 or /games/1.json
@@ -65,6 +56,6 @@ skip_before_action :is_authorized, only: [:create, :index]
 
   # Only allow a list of trusted parameters through.
   def game_params
-    params.require(:game).permit(:venue, :time, :homescore)
+    params.require(:game).permit(:venue, :time, :awayscore, :homescore, :home_id, :away_id, :status, :round, :division, :homevotes, :awayvotes, :homebalance, :awaybalance, :homedrinks_id, :awaydrinks_id, :homeavailible_id, :awayavailible_id  )
   end
 end
