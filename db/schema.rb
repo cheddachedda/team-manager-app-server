@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_095428) do
+ActiveRecord::Schema.define(version: 2021_11_16_233535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2021_11_16_095428) do
     t.integer "away_votes", default: [], array: true
     t.integer "home_available_ids", default: [], array: true
     t.integer "away_available_ids", default: [], array: true
-    t.string "home"
-    t.string "away"
+    t.string "home_id"
+    t.string "away_id"
     t.integer "round_no"
   end
 
