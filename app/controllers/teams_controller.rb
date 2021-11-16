@@ -1,9 +1,21 @@
 class TeamsController < ApplicationController
-  skip_before_action :is_authorized, only: [:create, :index]
+  skip_before_action :is_authorized, only: [:create, :index, :show]
 
   def index
     @teams = Team.all
-    render json: @teams
+    @data = []
+    @teams.each do |team|
+      @data << {
+        id: team.id,
+        name: team.name,
+        games_played: team.games_played,
+        wins: team.wins,
+        losses: team.losses,
+      }
+    end
+
+    render json: @data
+
   end
 
   def new
@@ -13,6 +25,16 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @team = Team.find params[:id]
+    @data = {
+      id: @team.id,
+      name: @team.name,
+      games_played: @team.games_played,
+      wins: @team.wins,
+      losses: @team.losses,
+    }
+
+    render json: @data
   end
 
   def edit

@@ -1,7 +1,6 @@
 class GamesController < ApplicationController
 skip_before_action :is_authorized, only: [:create, :index]
 
-
   def index
     @games = Game.all
     render json: @games

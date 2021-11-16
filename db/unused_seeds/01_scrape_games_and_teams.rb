@@ -56,7 +56,7 @@ end
 
 scrape_games.each do |game|
   new_game = Game.create game
-  puts "Created Game: #{ new_game[:home] } v #{ new_game[:away] }"
+  puts "Created Game: #{ new_game[:home_id] } v #{ new_game[:away_id] }"
 
   home_team = Team.find_by(name: game[:home])
   if home_team.nil?

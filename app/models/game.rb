@@ -63,8 +63,10 @@ class Game < ApplicationRecord
       Team.find (away).users
     end
 
-    def draw?
-      status == 'Completed' && home_score == away_score
+    def draw? team
+      if status == 'Completed' && home_score == away_score
+        team == draw
+      end
     end
 
     def win? team
