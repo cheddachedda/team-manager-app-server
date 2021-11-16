@@ -3,15 +3,25 @@ class Team < ApplicationRecord
   has_and_belongs_to_many :games
 
   def wins
-    self.games.filter{ |f| f.win? self}.count
+    games.filter{ |g| g.win? self }.count
   end
 
   def losses
-    self.games.filter{ |f| f.loss? self}.count
+    games.filter{ |g| g.loss? self }.count
+  end
+
+  def draws
+    games.filter{ |g| g.draw? }.count
+  end
+
+  def points_for
+  end
+
+  def points_against
   end
 
   def games_played
-    self.wins + self.losses
+    wins + losses
   end
 
 end
