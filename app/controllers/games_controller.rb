@@ -3,7 +3,9 @@ skip_before_action :is_authorized, only: [:create, :index]
 
   def index
     @games = Game.all
-    render json: @games
+    render json: @games.to_json(include: [
+      :complete, :date, :time, :matchup, :winner, :loser, :draw?
+    ])
   end
 
   # GET /games/new
