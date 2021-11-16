@@ -30,10 +30,11 @@ skip_before_action :is_authorized, only: [:create, :index]
   def update
     respond_to do |format|
       if @game.update(games_params)
-        format.html { redirect_to @game, notice: "game was successfully updated." }
-        format.json { render :show, status: :ok, location: @game }
+        # format.html { redirect_to @game, notice: "game was successfully updated." }
+        # format.json { render :show, status: :ok, location: @game }
+        render :json => @game
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        # format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
@@ -57,6 +58,6 @@ skip_before_action :is_authorized, only: [:create, :index]
 
   # Only allow a list of trusted parameters through.
   def game_params
-    params.require(:game).permit(:venue, :time, :awayscore, :homescore, :home_id, :away_id, :status, :round, :division, :homevotes, :awayvotes, :homebalance, :awaybalance, :homedrinks_id, :awaydrinks_id, :homeavailible_id, :awayavailible_id  )
+    params.require(:game).permit(:venue, :datetime, :away_score, :home_score, :home_id, :away_id, :status, :round, :division, :home_votes, :away_votes, :home_balance, :away_balance, :home_drinks_id, :away_drinks_id, :home_availible_id, :away_availible_id  )
   end
 end
