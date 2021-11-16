@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_15_215715) do
+ActiveRecord::Schema.define(version: 2021_11_16_095428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_215715) do
     t.datetime "datetime"
     t.integer "home_score"
     t.integer "away_score"
-    t.text "status"
-    t.string "round"
     t.string "division"
     t.integer "home_balance"
     t.integer "away_balance"
@@ -31,8 +29,9 @@ ActiveRecord::Schema.define(version: 2021_11_15_215715) do
     t.integer "away_votes", default: [], array: true
     t.integer "home_available_ids", default: [], array: true
     t.integer "away_available_ids", default: [], array: true
-    t.string "home"
-    t.string "away"
+    t.integer "home_id"
+    t.integer "away_id"
+    t.integer "round_no"
   end
 
   create_table "games_teams", id: false, force: :cascade do |t|
@@ -51,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_11_15_215715) do
     t.integer "captain_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "game_ids", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2021_11_15_215715) do
     t.boolean "captain", default: false
     t.integer "balance"
     t.integer "fines"
-    t.integer "votes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
