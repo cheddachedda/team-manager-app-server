@@ -3,7 +3,18 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
-    render json: @teams
+    @data = []
+    @teams.each do |team|
+      @data << {
+        id: team.id,
+        name: team.name,
+        games_played: team.games_played,
+        wins: team.wins,
+        losses: team.losses,
+      }
+    end
+
+    render json: @data
 
   end
 
