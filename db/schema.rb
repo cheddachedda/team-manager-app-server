@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2021_11_16_095428) do
     t.integer "away_votes", default: [], array: true
     t.integer "home_available_ids", default: [], array: true
     t.integer "away_available_ids", default: [], array: true
-    t.integer "home_id"
-    t.integer "away_id"
+    t.string "home"
+    t.string "away"
     t.integer "round_no"
   end
 
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_095428) do
     t.boolean "captain", default: false
     t.integer "balance"
     t.integer "fines"
+    t.integer "votes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
