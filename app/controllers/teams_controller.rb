@@ -27,6 +27,7 @@ class TeamsController < ApplicationController
   def create
   end
 
+  # GET '/ladder/:division_name'
   def division
     teams = Team.where(division: params[:division_name])
     @data = []
@@ -48,17 +49,10 @@ class TeamsController < ApplicationController
     render json: @data
   end
 
+  # GET '/teams/:id'
   def show
-    @team = Team.find params[:id]
-    @data = {
-      id: @team.id,
-      name: @team.name,
-      games_played: @team.games_played,
-      wins: @team.wins,
-      losses: @team.losses,
-    }
-
-    render json: @data
+    team = Team.find params[:id]
+    render json: team
   end
 
   def edit
