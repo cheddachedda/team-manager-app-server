@@ -52,7 +52,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# JSON Web Token for user authentication
 gem "jwt", "~> 2.3"
+
+# For CORS AJAX handling
 gem "rack-cors", "~> 1.1"
+
+# For web-scraping
 gem 'httparty'
 gem 'nokogiri'
+
+# Heroku
+gem 'rails_12factor', group: :production
