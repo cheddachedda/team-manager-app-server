@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/games', to: "games#index"
   resources :teams
 
+  get '/ladder/:division_name', to: 'teams#division'
 
   resources :games
 end

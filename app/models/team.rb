@@ -15,13 +15,42 @@ class Team < ApplicationRecord
   end
 
   def points_for
+    points_for = []
+    games.filter do |g|
+      if g.home == self
+        points_for << g.home_score
+      elsif g.away == self
+        points_for << g.away_score
+      end
+    end
+    points_for.sum
   end
 
   def points_against
+    points_for = []
+    games.filter do |g|
+      if g.home == self
+        points_for << g.away_score
+      elsif g.away == self
+        points_for << g.home_score
+      end
+    end
+    points_for.sum
   end
 
   def games_played
     wins + losses
+  end
+
+  def points_percentage
+    ((points_for.to_f / points_against) * 100).round(2)
+  end
+
+  def win_percentage
+    ((wins + draws / 2).to_f / games_played * 100).round(2)
+  end
+
+  def league_position
   end
 
 end
