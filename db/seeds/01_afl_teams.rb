@@ -20,7 +20,7 @@ teams = [
 ]
 
 teams.each do |team|
-  Team.create :name => team, :division => 'AFL'
+  Team.create :name => team, :division => 'afl'
 end
 
 puts "#{ Team.count } #{ 'team'.pluralize Team.count } created"

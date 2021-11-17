@@ -6,6 +6,14 @@ class Game < ApplicationRecord
     datetime < DateTime.now
   end
 
+  def status
+    if complete?
+      'COMPLETED'
+    else
+      'UPCOMING'
+    end
+  end
+
   def date
     datetime.strftime('%a %d %b')
   end

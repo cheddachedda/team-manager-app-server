@@ -3,7 +3,7 @@ require 'pry'
 
 HTTParty.get('https://fixturedownload.com/feed/json/afl-2021').each do |g|
   game = Game.create(
-    :division => 'AFL',
+    :division => 'afl',
     :round_no => g["RoundNumber"],
     :datetime => g["DateUtc"].to_datetime,
     :venue => g["Location"],
