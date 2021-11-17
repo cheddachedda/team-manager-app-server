@@ -1,5 +1,4 @@
 require 'httparty'
-require 'pry'
 
 HTTParty.get('https://fixturedownload.com/feed/json/afl-2021').each do |g|
   game = Game.create(
