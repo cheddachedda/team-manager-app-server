@@ -41,13 +41,13 @@ def scrape_games
       else
         home = Team.find_by(name: columns[3])
         if home.nil?
-          home = Team.create(name: columns[3], division: 'Netball')
+          home = Team.create(name: columns[3], division: 'netball')
           puts "Created Team: #{ home.name }"
         end
 
         away = Team.find_by(name: columns[6])
         if away.nil?
-          away = Team.create(name: columns[6], division: 'Netball')
+          away = Team.create(name: columns[6], division: 'netball')
           puts "Created Team: #{ away.name }"
         end
 
@@ -60,7 +60,7 @@ def scrape_games
 
         games << {
           round_no: round_no,
-          division: 'Netball',
+          division: 'netball',
           datetime: datetime,
           venue: columns[2],
           home_id: home.id,
