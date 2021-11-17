@@ -4,7 +4,7 @@ skip_before_action :is_authorized, only: [:create, :index]
   def index
     @games = Game.all
     render json: @games.to_json(include: [
-      :complete, :date, :time, :matchup, :winner, :loser, :draw?
+      # :complete, :date, :time, :matchup, :winner, :loser, :draw?
     ])
   end
 
@@ -16,7 +16,9 @@ skip_before_action :is_authorized, only: [:create, :index]
   # POST /games or /games.json
   def create
     @game = Game.new(game_params)
+    @game.save
     render :json => @game.errors.full_messages
+
   end
 
   # GET /games/1 or /games/1.json
@@ -59,6 +61,6 @@ skip_before_action :is_authorized, only: [:create, :index]
 
   # Only allow a list of trusted parameters through.
   def game_params
-    params.require(:game).permit(:venue, :datetime, :away_score, :home_score, :home_id, :away_id, :status, :round_no, :division, :home_votes, :away_votes, :home_balance, :away_balance, :home_drinks_id, :away_drinks_id, :home_availible_id, :away_availible_id  )
+    params.require(:game).permit(:venue, :datetime, :away_score, :home_score, :home_id, :away_id, :status, :round_no, :division, :home_votes, :away_votes, :home_balance, :away_balance, :home_drinks_id, :away_drinks_id, :home_available_ids => [], :away_available_ids => []  )
   end
 end
