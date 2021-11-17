@@ -29,12 +29,17 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find params[:id]
+    @users = [];
+    @team.users.each do |user|
+      @users.push(user.name)
+    end
     @data = {
       id: @team.id,
       name: @team.name,
       games_played: @team.games_played,
       wins: @team.wins,
       losses: @team.losses,
+      users: @users
     }
 
     render json: @data
