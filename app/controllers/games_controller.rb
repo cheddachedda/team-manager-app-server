@@ -1,11 +1,9 @@
 class GamesController < ApplicationController
-skip_before_action :is_authorized, only: [:create, :index]
+skip_before_action :is_authorized, only: [:create, :index, :division_rounds, :division_games]
 
   def index
     @games = Game.all
-    render json: @games.to_json(include: [
-      # :complete, :date, :time, :matchup, :winner, :loser, :draw?
-    ])
+    render json: @games
   end
 
   # GET /games/new
@@ -50,6 +48,21 @@ skip_before_action :is_authorized, only: [:create, :index]
       format.html { redirect_to games_url, notice: "Game was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # GET /games/:division_name/rounds
+  # Returns an array of each round_no for a division
+  def division_rounds
+    round_nos = Game.where(division: params[:division_name]).pluck(:round_no).uniq
+    render json: round_nos
+  end
+
+  # GET /games/:division_name/:round_no
+  def division_games
+    render json: Game.where(
+      division: params[:division_name],
+      round_no: params[:round_no]
+    )
   end
 
   private
