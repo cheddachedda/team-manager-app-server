@@ -70,11 +70,21 @@ skip_before_action :is_authorized, only: [:create, :index, :division_rounds, :di
 
     data = []
 
-    # games.each do |g|
-    #   data <<
-    # # end
+    games.each do |g|
+      data << {
+        id: g.id,
+        division: g.division,
+        round_no: g.round_no,
+        venue: g.venue,
+        datetime: g.datetime,
+        home: g.home.name,
+        away: g.away.name,
+        home_score: g.home_score,
+        away_score: g.away_score,
+      }
+    end
 
-    render json: games
+    render json: data
   end
 
   private
