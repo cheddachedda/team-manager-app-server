@@ -59,10 +59,22 @@ skip_before_action :is_authorized, only: [:create, :index, :division_rounds, :di
 
   # GET /games/:division_name/:round_no
   def division_games
-    render json: Game.where(
+    games = Game.where(
       division: params[:division_name],
       round_no: params[:round_no]
     )
+
+    data = []
+
+    games.each do |g|
+      data << {
+        id: g.id,
+        home: g.home,
+        away: g.away,
+      }
+    end
+
+    render json: data
   end
 
   private
