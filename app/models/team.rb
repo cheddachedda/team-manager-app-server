@@ -51,8 +51,8 @@ class Team < ApplicationRecord
   end
 
   def league_position
-    teams = Team.where(division: 'mon_mixed').sort_by { |t| [t.win_percentage, t.points_percentage] }
-    teams.index(team + 1)
+    teams = Team.where(division: 'mon_mixed').sort_by { |t| [t.win_percentage, t.points_percentage] }.reverse
+    teams.index(self) + 1
   end
 
 end
