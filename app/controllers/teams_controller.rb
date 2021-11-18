@@ -30,8 +30,9 @@ class TeamsController < ApplicationController
   # GET '/ladder/:division_name'
   def division
     teams = Team.where(division: params[:division_name])
+    sortedTeams = teams.sort_by { |team| [ team.wins, team.points_percentage]}.reverse
     @data = []
-    teams.each do |t|
+    sortedTeams.each do |t|
       @data << {
         id: t.id,
         name: t.name,
