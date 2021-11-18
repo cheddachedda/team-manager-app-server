@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2021_11_17_233527) do
     t.integer "team_id"
     t.boolean "admin", default: false
     t.boolean "captain", default: false
-    t.integer "balance", default: 0
-    t.integer "fines", default: 0
+    t.integer "balance"
+    t.integer "fines"
     t.integer "votes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

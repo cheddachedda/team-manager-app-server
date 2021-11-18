@@ -70,9 +70,9 @@ skip_before_action :is_authorized, only: [:create, :index, :division_rounds, :di
 
     data = []
 
-    games.each do |g|
-      data <<
-    end
+    # games.each do |g|
+    #   data <<
+    # # end
 
     render json: games
   end
