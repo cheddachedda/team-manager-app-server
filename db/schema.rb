@@ -29,11 +29,6 @@ ActiveRecord::Schema.define(version: 2021_11_17_233527) do
     t.integer "away_votes", default: [], array: true
     t.integer "home_available_ids", default: [], array: true
     t.integer "away_available_ids", default: [], array: true
-<<<<<<< HEAD
-    t.string "home_id"
-    t.string "away_id"
-=======
->>>>>>> eaf2f646c86e3cf5975552e7f5b43638ca023727
     t.integer "round_no"
     t.string "home_id"
     t.string "away_id"
