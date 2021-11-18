@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/ladder/:division_name', to: 'teams#division'
 
+  get '/divisions', to: 'games#divisions'
   get '/games/:division_name/rounds', to: 'games#division_rounds'
   get '/games/:division_name/:round_no', to: 'games#division_games'
 

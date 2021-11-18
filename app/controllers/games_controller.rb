@@ -50,6 +50,10 @@ skip_before_action :is_authorized, only: [:create, :index, :division_rounds, :di
     end
   end
 
+  def divisions
+    render json: Game.all.pluck(:division).uniq
+  end
+
   # GET /games/:division_name/rounds
   # Returns an array of each round_no for a division
   def division_rounds
@@ -67,14 +71,10 @@ skip_before_action :is_authorized, only: [:create, :index, :division_rounds, :di
     data = []
 
     games.each do |g|
-      data << {
-        id: g.id,
-        home: g.home,
-        away: g.away,
-      }
+      data <<
     end
 
-    render json: data
+    render json: games
   end
 
   private
