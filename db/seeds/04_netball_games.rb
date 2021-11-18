@@ -27,7 +27,7 @@ mon_mixed.each do |game|
     home_id: Team.find_by(name: game[3]).id,
     home_score: game[4],
     away_id: Team.find_by(name: game[5]).id,
-    away_score: game[5]
+    away_score: game[6]
   )
 
   home_team = Team.find(new_game.home_id)
